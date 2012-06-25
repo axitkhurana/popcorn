@@ -38,6 +38,7 @@ import cStringIO
 import hashlib
 import ConfigParser
 import datetime
+import hashlib
 
 VERSION = '0.1'
 TODAY = datetime.date.today()
