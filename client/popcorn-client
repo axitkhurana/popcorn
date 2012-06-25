@@ -37,6 +37,7 @@ import gzip
 import cStringIO
 import ConfigParser
 import datetime
+import hashlib
 
 VERSION = '0.1'
 TODAY = datetime.date.today()
@@ -131,9 +132,9 @@ class Statistics:  # TODO break this class into functions
     def serialize(self):
         distro, distro_ver, code = platform.linux_distribution()
         arch = platform.machine()
-        uuid = get_system_id()
+        uuid_hash = hashlib.sha256(get_system_id()).hexdigest()
         ret = [('POPCORN %(version)s %(distro)s %(distro_ver)s %(arch)s '
-                '%(uuid)s') % dict(version=VERSION, **locals())]
+                '%(uuid_hash)s') % dict(version=VERSION, **locals())]
         for pkg in self.packages:
             ret.append(' '.join(pkg))
         ret.append('')
