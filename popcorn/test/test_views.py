@@ -35,7 +35,7 @@ from popcorn import app
 from popcorn.database import db_session, Base
 from popcorn.models import Arch, PackageStatus
 
-today = date.today()
+TODAY = date.today()
 SYS_HWUUID = '33d08e56f1d2748bc7d056375042dcd1336a7635fdc1cec159bedacfce9c2c4f'
 
 
@@ -150,7 +150,7 @@ class PopcornTestCase(unittest.TestCase):
                     "arch": "x86_64",
                     "sys_hwuuid": SYS_HWUUID,
                     "submissions": [{
-                        "sub_date": today.strftime("%Y-%m-%d"),
+                        "sub_date": TODAY.strftime("%Y-%m-%d"),
                         "sys_hwuuid": SYS_HWUUID,
                         "popcorn_version": "0.1"
                         }],
@@ -169,7 +169,7 @@ class PopcornTestCase(unittest.TestCase):
             self.assertEqual(json.loads(response.data), {
                 "packages": [{
                     "sys_hwuuid": SYS_HWUUID,
-                    "sub_date": today.strftime("%Y-%m-%d"),
+                    "sub_date": TODAY.strftime("%Y-%m-%d"),
                     "pkg_status": "voted",
                     "pkg_name": "sed",
                     "pkg_version": "4.2.1",
@@ -181,7 +181,7 @@ class PopcornTestCase(unittest.TestCase):
                 "voted": 1,
                 "generic_package": {
                     "sys_hwuuid": SYS_HWUUID,
-                    "sub_date": today.strftime("%Y-%m-%d"),
+                    "sub_date": TODAY.strftime("%Y-%m-%d"),
                     "pkg_status": "voted",
                     "pkg_name": "sed",
                     "pkg_version": "4.2.1",
