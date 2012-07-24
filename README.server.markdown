@@ -6,7 +6,8 @@ To install the server in a virtualenv do the following:
 
 Clone the repository
 
-```git clone git://github.com/mapleoin/popcorn.git
+```
+git clone git://github.com/mapleoin/popcorn.git
 ```  
 
 Create the virtualenv and activate it
